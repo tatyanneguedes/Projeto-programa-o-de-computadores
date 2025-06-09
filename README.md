@@ -1,6 +1,6 @@
 Mine Sistema Bancário 
 
-- Objetivo
+-Objetivo
 Construir um sistema bancário simples no terminal que permita:
 
 1. Criar 5 contas bancárias
@@ -15,7 +15,7 @@ Construir um sistema bancário simples no terminal que permita:
 
 6.Ver todos os saldos
 
-- Ferramentas e Conceitos Usados
+ -Ferramentas e Conceitos Usados
 
   1.Python básico: lógica e estrutura geral
 
@@ -39,7 +39,7 @@ Construir um sistema bancário simples no terminal que permita:
 
 5. Repete até escolher sair
 
-- Conceitos trabalhados
+-Conceitos trabalhados
 
   1.Lógica de programação
 
@@ -48,7 +48,10 @@ Construir um sistema bancário simples no terminal que permita:
   3.Estruturas de controle
 
   4.Listas e índices
+  
   5.Modularização
+  
   6.Tratamento de exceções
+ 
   7.Clareza e organização
 

@@ -16,10 +16,15 @@ Construir um sistema bancário simples no terminal que permita:
 6.Ver todos os saldos
 
 - Ferramentas e Conceitos Usados
+
   1.Python básico: lógica e estrutura geral
+
   2.Listas: guardam códigos e saldos das contas
+
   3.Funções: organizam operações como depósito e saque
+
   4.Laços (for, while): repetição para cadastro e menu
+
   5.try/except: tratamento de erros de entrada
 
 -Fluxo principal do programa
@@ -35,9 +40,13 @@ Construir um sistema bancário simples no terminal que permita:
 5. Repete até escolher sair
 
 - Conceitos trabalhados
+
   1.Lógica de programação
+
   2.Entrada e saída de dados
+
   3.Estruturas de controle
+
   4.Listas e índices
   5.Modularização
   6.Tratamento de exceções

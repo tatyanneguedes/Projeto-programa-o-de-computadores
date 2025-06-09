@@ -1,0 +1,55 @@
+def consultar_ativo_bancario(saldos):
+    total = sum(saldos)
+    print(f"O ativo bancário total é: R${total:.2f}")
+
+def exibir_todos_os_saldos(codigos, saldos):
+    print("\n--- Saldos das Contas ---")
+    for i in range(len(codigos)):
+        print(f"Conta {codigos[i]}: R${saldos[i]:.2f}")
+
+# Lista de contas
+codigos = []
+saldos = []
+
+# Cadastro de 5 contas
+print("=== Cadastro de Contas Bancárias ===")
+for i in range(5):
+    while True:
+        try:
+            codigo = int(input(f"Digite o código da conta {i+1}: "))
+            if codigo in codigos:
+                print("Código já cadastrado. Informe um código diferente.")
+            else:
+                break
+        except ValueError:
+            print("Entrada inválida. Use apenas números.")
+    while True:
+        try:
+            saldo = float(input(f"Informe o saldo da conta {i+1}: "))
+            break
+        except ValueError:
+            print("Entrada inválida. Digite um número válido.")
+    codigos.append(codigo)
+    saldos.append(saldo)
+
+# Menu principal
+while True:
+    try:
+        opcao = exibir_menu()
+        if opcao == 1:
+            realizar_deposito(codigos, saldos)
+        elif opcao == 2:
+            realizar_saque(codigos, saldos)
+        elif opcao == 3:
+            realizar_transferencia(codigos, saldos)
+        elif opcao == 4:
+            consultar_ativo_bancario(saldos)
+        elif opcao == 5:
+            print("Programa finalizado.")
+            break
+        elif opcao == 6:
+            exibir_todos_os_saldos(codigos, saldos)
+        else:
+            print("Opção inválida. Digite um número de 1 a 6.")
+    except ValueError:
+        print("Entrada inválida. Use apenas números.")

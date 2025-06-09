@@ -1,0 +1,71 @@
+def exibir_menu():
+    print("\n----- Menu -----")
+    print("1. Realizar Depósito")
+    print("2. Realizar Saque")
+    print("3. Realizar Transferência")
+    print("4. Consultar o ativo bancário")
+    print("5. Finalizar Programa")
+    print("6. Exibir saldos de todas as contas")
+    return int(input("Escolha uma opção: "))
+
+def encontrar_indice_conta(codigos, codigo):
+    if codigo in codigos:
+        return codigos.index(codigo)
+    else:
+        return -1
+
+def realizar_deposito(codigos, saldos):
+    try:
+        codigo = int(input("Digite o código da conta para depósito: "))
+        indice = encontrar_indice_conta(codigos, codigo)
+        if indice == -1:
+            print("Conta não encontrada.")
+        else:
+            valor = float(input("Informe o valor do depósito: "))
+            saldos[indice] += valor
+            print(f"Depósito realizado com sucesso. Novo saldo: R${saldos[indice]:.2f}")
+    except ValueError:
+        print("Entrada inválida. Use apenas números.")
+
+def realizar_saque(codigos, saldos):
+    try:
+        codigo = int(input("Digite o código da conta para saque: "))
+        indice = encontrar_indice_conta(codigos, codigo)
+        if indice == -1:
+            print("Conta não encontrada.")
+        else:
+            valor = float(input("Informe o valor do saque: "))
+            if saldos[indice] >= valor:
+                saldos[indice] -= valor
+                print(f"Saque realizado com sucesso. Novo saldo: R${saldos[indice]:.2f}")
+            else:
+                print("Saldo insuficiente.")
+    except ValueError:
+        print("Entrada inválida. Use apenas números.")
+
+def realizar_transferencia(codigos, saldos):
+    try:
+        codigo_origem = int(input("Digite o código da conta de origem: "))
+        indice_origem = encontrar_indice_conta(codigos, codigo_origem)
+        if indice_origem == -1:
+            print("Conta de origem não encontrada.")
+            return
+
+        codigo_destino = int(input("Digite o código da conta de destino: "))
+        indice_destino = encontrar_indice_conta(codigos, codigo_destino)
+        if indice_destino == -1:
+            print("Conta de destino não encontrada.")
+            return
+
+        valor = float(input("Informe o valor da transferência: "))
+        if saldos[indice_origem] >= valor:
+            saldos[indice_origem] -= valor
+            saldos[indice_destino] += valor
+            print("Transferência realizada com sucesso.")
+            print(f"Saldo da conta de origem: R${saldos[indice_origem]:.2f}")
+            print(f"Saldo da conta de destino: R${saldos[indice_destino]:.2f}")
+        else:
+            print("Saldo insuficiente na conta de origem.")
+    except ValueError:
+        print("Entrada inválida. Use apenas números.")
+
